@@ -1,4 +1,4 @@
-/* Add this in your global CSS file or <style> tag */
+/* CSS for scroll bar costumization */
 ::-webkit-scrollbar {
   width: 8px; /* slim width */
 }
@@ -15,6 +15,18 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(180deg, #d3d3d6, #5c5c5c); /* hover gradient */
+}
+
+
+/* CSS for hiding a specific scroll-bar */
+
+/* Only hides scrollbar for elements with .scrollbar-hidden */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* Internet Explorer, Edge */
+  scrollbar-width: none;     /* Firefox */
 }
 
 

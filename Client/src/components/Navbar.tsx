@@ -18,7 +18,9 @@ const Navbar = () => {
                 </div>
 
                 <div>
-                    <FaRegUser className="h-6 w-6"/>
+                    <a href="/profile">
+                        <FaRegUser className="h-6 w-6" />
+                    </a>
                 </div>
             </div>
         </nav>

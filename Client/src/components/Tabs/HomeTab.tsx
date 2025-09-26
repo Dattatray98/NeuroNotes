@@ -53,7 +53,7 @@ const DatasetsTab = () => {
             <div className="p-1 mt-10">
                 <h1 className="text-[#111118] text-[22px] font-bold leading-tight tracking-[-0.015em] pb-5">Recent Activities</h1>
                 <div className="px-1 py-2">
-                    <div className="p-2 flex border border-gray-100 hover:border-gray-300 hover:shadow-md rounded-xl">
+                    <div className="p-2 flex border border-gray-100 hover:border-gray-300 hover:shadow-md rounded-xl m-1">
                         <div className="border h-12 w-12 rounded-xl border-gray-200"> 
                         </div>
                         <div className="px-3">
@@ -62,7 +62,7 @@ const DatasetsTab = () => {
                         </div>
                     </div>
 
-                    <div className="p-2 flex border border-gray-100 hover:border-gray-300 hover:shadow-md rounded-xl">
+                    <div className="p-2 flex border border-gray-100 hover:border-gray-300 hover:shadow-md rounded-xl m-1">
                         <div className="border h-12 w-12 rounded-xl border-gray-200"> 
                         </div>
                         <div className="px-3">
@@ -71,7 +71,7 @@ const DatasetsTab = () => {
                         </div>
                     </div>
 
-                    <div className="p-2 flex border border-gray-100 hover:border-gray-300 hover:shadow-md rounded-xl">
+                    <div className="p-2 flex border border-gray-100 hover:border-gray-300 hover:shadow-md rounded-xl m-1">
                         <div className="border h-12 w-12 rounded-xl border-gray-200"> 
                         </div>
                         <div className="px-3">
@@ -80,7 +80,7 @@ const DatasetsTab = () => {
                         </div>
                     </div>
 
-                    <div className="p-2 flex border border-gray-100 hover:border-gray-300 hover:shadow-md rounded-xl">
+                    <div className="p-2 flex border border-gray-100 hover:border-gray-300 hover:shadow-md rounded-xl m-1">
                         <div className="border h-12 w-12 rounded-xl border-gray-200"> 
                         </div>
                         <div className="px-3">

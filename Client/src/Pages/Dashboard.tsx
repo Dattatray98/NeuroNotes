@@ -5,20 +5,20 @@ import { FaFolderOpen, FaRegStar } from "react-icons/fa";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { RiChatSmileAiLine } from "react-icons/ri";
 import { IoSettingsOutline } from "react-icons/io5";
-import { AiChat, Home, Upload } from "../components/Tabs";
+import { AiChat, Home, Settings, Upload } from "../components/Tabs";
 import Sidebar from "../components/Sidebar";
 
 const Dashboard = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [aiChatMode, setAiChatMode] = useState(false);
 
-    const tabs = [
-        { label: "My Docs", icon: FaFolderOpen, content: <Home /> },
-        { label: "Upload", icon: MdOutlineFileUpload, content: <Upload /> },
-        { label: "Ai Chat", icon: RiChatSmileAiLine, content: <AiChat /> },
-        { label: "Highlights", icon: FaRegStar, content: <div>Highlights of your recent activity</div> },
-        { label: "Settings", icon: IoSettingsOutline, content: <div>Setting page</div> },
-    ];
+        const tabs = [
+            { label: "My Docs", icon: FaFolderOpen, content: <Home /> },
+            { label: "Upload", icon: MdOutlineFileUpload, content: <Upload /> },
+            { label: "Ai Chat", icon: RiChatSmileAiLine, content: <AiChat /> },
+            { label: "Highlights", icon: FaRegStar, content: <div>this is Highlights page</div>},
+            { label: "Settings", icon: IoSettingsOutline, content: <Settings />  },
+        ];
 
     const handleTabClick = (index: number) => {
         setActiveTab(index);
