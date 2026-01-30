@@ -1,70 +1,44 @@
 // components/Tabs/AiChat.tsx
-import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { LuBrainCircuit } from "react-icons/lu";
+import { useState } from "react";
+import { IoSparklesOutline } from "react-icons/io5";
+import { useAskNeo } from "../../hooks/useAskNeo";
+import AIChatMessage from "../TabComponents/AIChatMessage";
 
 const AIchatTab = () => {
-    const [messages, setMessages] = useState<{ user: boolean; text: string }[]>([]);
+    // const [messages] = useState<string | null>(null)
     const [input, setInput] = useState("");
-    const chatEndRef = useRef<HTMLDivElement>(null);
+
+
+
+    const { Generate, messages } = useAskNeo();
 
     const sendMessage = () => {
         if (!input.trim()) return;
 
-        // Add user message
-        setMessages(prev => [...prev, { user: true, text: input }]);
-        const userInput = input;
+        Generate(input)
         setInput("");
 
-        // Simulate AI response after delay
-        setTimeout(() => {
-            setMessages(prev => [
-                ...prev,
-                { user: false, text: `AI Response to: "${userInput}"` },
-            ]);
-        }, 800);
+
     };
 
     // Scroll to bottom when messages change
-    useEffect(() => {
-        chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    }, [messages]);
+
 
     return (
-        <div className="flex flex-col h-full bg-white rounded-xl p-4">
+        <div className="flex flex-col h-full bg-white rounded-xl p-4 ">
             {/* Chat Header */}
             <div className="flex items-center border-b pb-2 mb-2 gap-2">
-                <LuBrainCircuit className="h-7 w-7 bg-gray-200 p-1 rounded-full"/>
-                <h2 className="text-lg font-medium text-black">AI Chat</h2>
+                <IoSparklesOutline className="h-5 w-5" />
+                <h2 className="text-xl font-medium text-black">Ask Neo</h2>
             </div>
 
             {/* Chat Messages */}
-            <div className="flex justify-center h-full overflow-y-auto ">
-                <div className="flex-1 max-w-[110vh] mb-4 space-y-3 p-2">
-                    {messages.map((msg, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className={`flex ${msg.user ? "justify-end" : "justify-start"}`}
-                        >
-                            <div
-                                className={`px-4 py-2 rounded-xl max-w-[70%] ${msg.user
-                                    ? "bg-gray-200 text-black"
-                                    : "bg-gray-200 text-black"
-                                    }`}
-                            >
-                                {msg.text}
-                            </div>
-                        </motion.div>
-                    ))}
-                    <div ref={chatEndRef} />
-                </div>
+            <div className="min-h-[70vh] max-h-[70vh] w-full flex justify-center">
+                <AIChatMessage messages={messages} />
             </div>
 
             {/* Input */}
-            <div className="w-full flex justify-center">
+            <div className="w-full flex justify-center bo">
                 <div className="flex gap-2 w-[80vh]">
                     <input
                         type="text"
@@ -72,7 +46,7 @@ const AIchatTab = () => {
                         onChange={e => setInput(e.target.value)}
                         onKeyDown={e => e.key === "Enter" && sendMessage()}
                         placeholder="Type your message..."
-                        className="flex-1  border border-gray-300 rounded-xl p-2 outline-none focus:ring-2 focus:ring-[#786cf9]"
+                        className="flex-1  border border-gray-300 rounded-xl p-2 outline-none focus:ring-2 focus:ring-[#786cf9] font-medium"
                     />
                     <button
                         onClick={sendMessage}

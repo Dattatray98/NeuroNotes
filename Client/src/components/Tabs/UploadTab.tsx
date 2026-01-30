@@ -12,14 +12,18 @@ const UploadTAb = () => {
                     <div className="border-2 border-gray-300 border-dotted h-60 mt-5 rounded-xl p-10 flex items-center justify-center gap-5 hover:border-purple-950">
                         <p className="text-lg text-black font-medium">Drag & Drop Your files here</p>
                         <p className="text-lg text-black font-medium">Or</p>
-                        <button className="bg-gray-200 rounded-xl h-11 px-5 font-bold text-black text-[16px]
-             hover:bg-[#786cf9] hover:text-white 
-             transition-colors duration-300 ease-in-out">
-                            Upload File
+                        <button className="bg-gray-200 rounded-xl h-11 font-bold text-black text-[16px]
+             hover:bg-[#786cf9] hover:text-white transition-all duration-300 flex items-center justify-center">
+                            <input type="file"/>
                         </button>
                     </div>
                 </div>
 
+                <div className="h-20 p-4">
+                    <button className="px-4 py-2 border border-gray-200 shadow-sm rounded-xl cursor-pointer font-medium">Find Resources</button>
+                </div>
+
+                
 
                 <div className="p-4 mt-5">
                     <h1 className="text-[#111118] text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2">Uploaded Files</h1>
