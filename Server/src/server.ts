@@ -1,6 +1,7 @@
 import express, { Application, Request, Response } from 'express';
 import { AsKToNeo } from './config/NeoModel.config';
 import cors from "cors";
+import { GetSummary } from './controllers/GetSummary.controller';
 
 const app: Application = express();
 const PORT = process.env.PORT || 3000;
@@ -14,6 +15,7 @@ app.get('/', (req: Request, res: Response) => {
 
 
 app.post("/ask", AsKToNeo);
+app.post("/summary", GetSummary);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

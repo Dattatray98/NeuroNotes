@@ -19,8 +19,6 @@ def read_root():
 @app.post("/askneo")
 def AskNeo(prompt: prompt):
 
-    print("prompt", prompt.prompt)
-
     response = ollama.generate(
         model="llama3",
         prompt=prompt.prompt

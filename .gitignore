@@ -3,3 +3,5 @@
 node_modules
 Server/.env
 Server/.env
+Server/uploads
+Summry_model/src/Proccessing/downloads

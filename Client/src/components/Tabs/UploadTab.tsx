@@ -1,5 +1,17 @@
+import type React from "react";
+import { useSummary } from "../../hooks/useSummary"
+import { useState } from "react";
 
 const UploadTAb = () => {
+    const [file, setFile] = useState<File | null>(null);
+
+    const { GetSummary } = useSummary();
+
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setFile(e.target.files ? e.target.files[0] : null);
+        console.log(e.target.files);
+    }
+
     return (
         <div className="">
             <h1 className="text-[#111118] tracking-light text-[32px] font-bold leading-tight min-w-72">Upload Your Documents</h1>
@@ -14,16 +26,21 @@ const UploadTAb = () => {
                         <p className="text-lg text-black font-medium">Or</p>
                         <button className="bg-gray-200 rounded-xl h-11 font-bold text-black text-[16px]
              hover:bg-[#786cf9] hover:text-white transition-all duration-300 flex items-center justify-center">
-                            <input type="file"/>
+                            <input
+                                type="file"
+                                onChange={handleFileChange}
+                            />
                         </button>
                     </div>
                 </div>
 
                 <div className="h-20 p-4">
-                    <button className="px-4 py-2 border border-gray-200 shadow-sm rounded-xl cursor-pointer font-medium">Find Resources</button>
+                    <button className="px-4 py-2 border border-gray-200 shadow-sm rounded-xl cursor-pointer font-medium"
+                        onClick={() => GetSummary(file ? file : new File([], ""))}
+                    >Find Resources</button>
                 </div>
 
-                
+
 
                 <div className="p-4 mt-5">
                     <h1 className="text-[#111118] text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2">Uploaded Files</h1>
