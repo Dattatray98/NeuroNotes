@@ -3,6 +3,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 import ollama 
+import torch 
 
 
 class prompt(BaseModel):
@@ -18,7 +19,9 @@ def read_root():
 
 @app.post("/askneo")
 def AskNeo(prompt: prompt):
-
+    print(prompt)
+    torch.device("cuda")
+    torch.cuda.empty_cache()
     response = ollama.generate(
         model="llama3",
         prompt=prompt.prompt

@@ -1,16 +1,21 @@
 import type React from "react";
 import { useSummary } from "../../hooks/useSummary"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import ReactMarkdown from 'react-markdown';
 
 const UploadTAb = () => {
     const [file, setFile] = useState<File | null>(null);
 
-    const { GetSummary } = useSummary();
+    const { GetSummary, summary } = useSummary();
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFile(e.target.files ? e.target.files[0] : null);
+        setFile(e.target.files ? e.target.files[0] : null );
         console.log(e.target.files);
     }
+
+    useEffect(()=>{
+        summary
+    },[summary])
 
     return (
         <div className="">
@@ -29,6 +34,7 @@ const UploadTAb = () => {
                             <input
                                 type="file"
                                 onChange={handleFileChange}
+                                required
                             />
                         </button>
                     </div>
@@ -36,11 +42,18 @@ const UploadTAb = () => {
 
                 <div className="h-20 p-4">
                     <button className="px-4 py-2 border border-gray-200 shadow-sm rounded-xl cursor-pointer font-medium"
-                        onClick={() => GetSummary(file ? file : new File([], ""))}
+                        onClick={() => GetSummary(file)}
                     >Find Resources</button>
                 </div>
 
 
+                <div className="h-[60vh] p-4">
+                    <div className="border border-gray-300 rounded-xl shadow-sm h-full overflow-y-scroll p-4 space-y-2 ">
+                        <ReactMarkdown>
+                            {summary}
+                        </ReactMarkdown>
+                    </div>
+                </div>
 
                 <div className="p-4 mt-5">
                     <h1 className="text-[#111118] text-[22px] font-bold leading-tight tracking-[-0.015em] pb-2">Uploaded Files</h1>

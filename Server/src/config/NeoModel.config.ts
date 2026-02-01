@@ -8,7 +8,7 @@ export const AsKToNeo = async (req: Request, res: Response) => {
 
         console.log(prompt)
 
-        const response = await axios.post("http://127.0.0.1:8000/askneo",
+        const response = await axios.post("http://127.0.0.1:8001/askneo",
             {
                 prompt: prompt
             },
@@ -19,13 +19,28 @@ export const AsKToNeo = async (req: Request, res: Response) => {
             }
         );
 
-        console.log(response.data);
-
         return res.status(200).json({
-            result :response.data[0]
+            result: response.data[0]
         });
 
     } catch (err) {
         // console.log(err)
     }
+}
+
+
+export const NeoModel = async (prompt: string) => {
+    const response = await axios.post("http://127.0.0.1:8001/askneo",
+        {
+            prompt: prompt
+        },
+        {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+    );
+
+    return response.data[0]
+
 }

@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { useAxios } from "./useAxios"
 
 export const useSummary = () => {
+    const [summary, setSummary] = useState();
 
     const api = useAxios();
 
@@ -16,9 +18,10 @@ export const useSummary = () => {
         });
 
         console.log("Summary response: ", response.data);
+        setSummary(response.data.summary)
         return response.data;
     }
 
 
-    return { GetSummary}
+    return { GetSummary, summary }
 }

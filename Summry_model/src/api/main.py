@@ -1,6 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from Proccessing.downloadFile import DownloadFile
+from Proccessing.TextExtractions import ExtractText
+import os
 
 
 app = FastAPI()
@@ -11,20 +13,17 @@ class item(BaseModel):
     filename: str
 
 
-
-
-
 @app.get("/")
 def read_root():
     return {"hello": "world"}
 
 
-
 @app.post("/summary")
-def GenerateSummary(item:item):
-    print(item.url)
-    print(item.filename)
+def GenerateSummary(item: item):
 
-    DownloadFile(item.url, item.filename)
-    
-    return {"message":"fiel is recieved"}
+    file_path = DownloadFile(item.url, item.filename)
+
+    extracted_text = ExtractText(file_path)
+    os.remove(file_path)
+
+    return {"message": "fiel is recieved", "text": extracted_text}
