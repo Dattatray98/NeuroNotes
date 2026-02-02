@@ -4,7 +4,7 @@ import os
 
 def DownloadFile(url: str, filename: str):
     headers = {"User-Agent": "Mozilla/5.0"}
-
+    
     try:
 
         response = requests.get(url, headers=headers, timeout=10, allow_redirects=True)
