@@ -26,22 +26,15 @@ def ExtractText(filePath: str):
 
         doc.close()
 
-        print("Writing file to:", txt_path)
         extracted_text.replace("\\n", " ")
 
         file = open(txt_path, 'a+', encoding="utf-8")
-
-        print(extracted_text)
-
         line_text = ""
         for line in extracted_text:
             line_text += line
 
         with open(txt_path, "w", encoding="utf-8") as f:
             f.write(line_text)
-
-        print("✅ File written successfully")
-
         return extracted_text
 
     except Exception as e:

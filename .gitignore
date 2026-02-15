@@ -1,7 +1,10 @@
 *.venv
+*v_env
 *.env
 Server/node_modules
 Server/.env
 Server/.env
 Server/uploads
 Summry_model/src/Proccessing/downloads
+Notes
+Summry_model/src/media

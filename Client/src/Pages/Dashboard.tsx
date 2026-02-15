@@ -28,7 +28,6 @@ const Dashboard = () => {
         <div className="w-full h-screen">
             {/* Navbar */}
             <Navbar />
-
             <div className="flex h-[calc(100vh-75px)]  py-4  border  border-gray-300 shadow-sm">
                 {/* Sidebar */}
                 <Sidebar

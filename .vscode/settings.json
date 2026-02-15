@@ -1,0 +1,11 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "database": "${workspaceFolder:NeuroNotes}/Summry_model/src/media/index.db",
+            "name": "NeuroNotes"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
